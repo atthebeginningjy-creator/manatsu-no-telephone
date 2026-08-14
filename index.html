@@ -21,48 +21,41 @@
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 1s ease; /* 消える時のフワッとしたアニメーション */
+            transition: opacity 1.5s ease; /* 1.5秒かけてゆっくりエレガントに消える */
             overflow: hidden;
         }
 
-        /* 購入者特典の文字 */
-        .splash-title {
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        /* Special Thanks の文字（少しオシャレなセリフ体） */
+        .splash-thanks {
+            font-size: 2.2rem;
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             z-index: 10;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
         }
 
+        /* 購入者限定の文字（小さめ・シンプルに） */
+        .splash-sub {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            z-index: 10;
+            opacity: 0.85;
+            font-weight: lighter;
+        }
+
+        /* タイトル */
         .splash-main {
             font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 40px;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
             z-index: 10;
         }
 
-        /* 開くボタン */
-        .enter-btn {
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            color: #0072ff;
-            background: #fff;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-            z-index: 10;
-            font-weight: bold;
-        }
-
-        .enter-btn:hover {
-            transform: scale(1.05);
-        }
-
         /* =========================================
-           泡（サイダー）のアニメーション設定・修正版
+           泡（サイダー）のアニメーション設定
         ========================================= */
         .bubbles {
             position: absolute;
@@ -71,17 +64,16 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1; /* 背景と文字の間 */
+            z-index: 1; 
         }
 
         .bubble {
             position: absolute;
-            bottom: -100px; /* 画面外からスタート */
-            background: rgba(255, 255, 255, 0.5); /* 泡を少し濃くしました */
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.5); 
             border-radius: 50%;
         }
 
-        /* 各々の泡に確実なアニメーション秒数を指定 */
         .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation: rise 4s infinite ease-in; }
         .bubble:nth-child(2) { width: 20px; height: 20px; left: 30%; animation: rise 5s infinite ease-in 1s; }
         .bubble:nth-child(3) { width: 50px; height: 50px; left: 60%; animation: rise 6s infinite ease-in; }
@@ -91,24 +83,18 @@
         .bubble:nth-child(7) { width: 35px; height: 35px; left: 75%; animation: rise 6.5s infinite ease-in 0.2s; }
         .bubble:nth-child(8) { width: 45px; height: 45px; left: 90%; animation: rise 5.2s infinite ease-in 2.5s; }
 
-        /* Y軸の移動（transform）を使って確実に動かす */
         @keyframes rise {
             0% {
                 transform: translateY(0) translateX(0);
                 opacity: 0;
             }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% {
-                transform: translateY(-120vh) translateX(-20px); /* 画面の一番上まで登り切る */
+                transform: translateY(-120vh) translateX(-20px); 
                 opacity: 0;
             }
         }
-
 
         /* =========================================
            ここから下はメインLP
@@ -183,7 +169,6 @@
     ========================================= -->
     <div id="splash-screen">
         <div class="bubbles">
-            <!-- 泡の要素（8個に増やしました） -->
             <div class="bubble"></div>
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -193,9 +178,9 @@
             <div class="bubble"></div>
             <div class="bubble"></div>
         </div>
-        <div class="splash-title">購入者限定 SPECIAL PAGE</div>
+        <div class="splash-thanks">Special Thanks</div>
+        <div class="splash-sub">For All Purchasers</div>
         <div class="splash-main">真夏のテレフォン</div>
-        <button class="enter-btn" onclick="hideSplash()">ページを開く</button>
     </div>
 
     <!-- =========================================
@@ -236,16 +221,21 @@
         </footer>
     </div>
 
-    <!-- 画面を消すためのJavaScript -->
+    <!-- 自動で画面を切り替えるJavaScript -->
     <script>
-        function hideSplash() {
-            const splash = document.getElementById('splash-screen');
-            splash.style.opacity = '0';
-            
+        // ページが読み込まれたらタイマーをスタート
+        window.addEventListener('load', () => {
+            // 4000ミリ秒（4秒）後にフェードアウトを開始
             setTimeout(() => {
-                splash.style.display = 'none';
-            }, 1000);
-        }
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                
+                // CSSのtransition（1.5秒）が終わるのを待ってから完全に非表示にする
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 1500); 
+            }, 4000);
+        });
     </script>
 </body>
 </html>
