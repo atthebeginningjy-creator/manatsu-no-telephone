@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>真夏のテレフォン / 恋するオルゴール</title>
+    <style>
+        /* 全体のベース設定（夏っぽい爽やかなグラデーション） */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #ff7e5f 100%);
+            color: #fff;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* メインビジュアル（ジャケット写真エリア） */
+        .hero {
+            margin: 20px 0;
+        }
+
+        .jacket-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            display: block;
+        }
+
+        /* 各セクション共通 */
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 30px 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+
+        /* 埋め込みエリア（動画・音声用） */
+        .media-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.5%; /* 16:9の比率 */
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .media-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* 制作秘話テキスト */
+        .story-text {
+            text-align: left;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            padding: 0 10px;
+        }
+
+        /* フッター */
+        footer {
+            padding: 30px 0;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- メインビジュアル：ジャケット写真 -->
+        <header class="hero">
+            <!-- ※画像ファイル名をご自身の保存名に合わせて変更してください（例: jacket.png など） -->
+            <img src="1C5CA39B-DF14-4FF2-96CD-13F27FB509A6.png" alt="真夏のテレフォン ジャケット写真" class="jacket-img">
+        </header>
+
+        <!-- ① 音源セクション -->
+        <section class="section">
+            <h2>🎵 楽曲を聴く</h2>
+            <div style="padding: 40px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                <p>（ここに「真夏のテレフォン」の音源プレイヤーが入ります）</p>
+            </div>
+        </section>
+
+        <!-- ② 振付動画セクション -->
+        <section class="section">
+            <h2>💃 みんなで踊ろう振付動画</h2>
+            <div class="media-wrapper">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <p>振付動画 準備中</p>
+                </div>
+            </div>
+            <p style="font-size: 0.9rem; opacity: 0.8;">サビの振付を覚えて一緒に踊ろう！</p>
+        </section>
+
+        <!-- ③ 制作秘話セクション -->
+        <section class="section">
+            <h2>📖 制作秘話</h2>
+            <div class="story-text">
+                <p><strong>【ここにエピソードが入ります】</strong></p>
+                <p>「真夏のテレフォン」は、夏のきらめきと少し切ない距離感をテーマに制作されました。レコーディングの裏話や、歌詞に込めたこだわりなどを順次公開予定です。</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; オタクのいちごさん All Rights Reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
