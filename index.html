@@ -5,7 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>真夏のテレフォン / 恋するオルゴール</title>
     <style>
-        /* 全体のベース設定（夏っぽい爽やかなグラデーション） */
+        /* =========================================
+           スペシャル演出（オープニング画面）のスタイル
+        ========================================= */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #00c6ff, #0072ff); /* 夏の海・空のグラデーション */
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 1s ease; /* 消える時のフワッとしたアニメーション */
+            overflow: hidden;
+        }
+
+        /* 購入者特典の文字 */
+        .splash-title {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .splash-main {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+
+        /* 開くボタン */
+        .enter-btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            color: #0072ff;
+            background: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            z-index: 10;
+            font-weight: bold;
+        }
+
+        .enter-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* 泡（サイダー）のアニメーション設定 */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: rise infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -50px;
+                transform: translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+        }
+
+        /* 泡のサイズと速度をバラバラにする */
+        .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 4s; }
+        .bubble:nth-child(2) { width: 20px; height: 20px; left: 30%; animation-duration: 5s; animation-delay: 1s; }
+        .bubble:nth-child(3) { width: 50px; height: 50px; left: 60%; animation-duration: 6s; }
+        .bubble:nth-child(4) { width: 30px; height: 30px; left: 80%; animation-duration: 4.5s; animation-delay: 2s; }
+        .bubble:nth-child(5) { width: 25px; height: 25px; left: 50%; animation-duration: 5.5s; animation-delay: 0.5s; }
+
+
+        /* =========================================
+           ここから下はメインLP（さきほどのコード）
+        ========================================= */
         body {
             margin: 0;
             padding: 0;
@@ -22,11 +122,7 @@
             padding: 20px;
         }
 
-        /* メインビジュアル（ジャケット写真エリア） */
-        .hero {
-            margin: 20px 0;
-        }
-
+        .hero { margin: 20px 0; }
         .jacket-img {
             width: 100%;
             height: auto;
@@ -35,7 +131,6 @@
             display: block;
         }
 
-        /* 各セクション共通 */
         .section {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -52,11 +147,10 @@
             padding-bottom: 10px;
         }
 
-        /* 埋め込みエリア（動画・音声用） */
         .media-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 56.5%; /* 16:9の比率 */
+            padding-top: 56.5%;
             background: #000;
             border-radius: 8px;
             overflow: hidden;
@@ -65,39 +159,43 @@
 
         .media-wrapper iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+            top: 0; left: 0; width: 100%; height: 100%; border: none;
         }
 
-        /* 制作秘話テキスト */
         .story-text {
-            text-align: left;
-            line-height: 1.8;
-            font-size: 0.95rem;
-            padding: 0 10px;
+            text-align: left; line-height: 1.8; font-size: 0.95rem; padding: 0 10px;
         }
 
-        /* フッター */
-        footer {
-            padding: 30px 0;
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
+        footer { padding: 30px 0; font-size: 0.8rem; opacity: 0.7; }
     </style>
 </head>
 <body>
 
+    <!-- =========================================
+         購入者限定 スペシャルオープニング画面
+    ========================================= -->
+    <div id="splash-screen">
+        <div class="bubbles">
+            <!-- 泡の要素 -->
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <div class="splash-title">購入者限定 SPECIAL PAGE</div>
+        <div class="splash-main">真夏のテレフォン</div>
+        <button class="enter-btn" onclick="hideSplash()">ページを開く</button>
+    </div>
+
+    <!-- =========================================
+         メインLP
+    ========================================= -->
     <div class="container">
-        <!-- メインビジュアル：ジャケット写真 -->
         <header class="hero">
-            <!-- ※画像ファイル名をご自身の保存名に合わせて変更してください（例: jacket.png など） -->
             <img src="1C5CA39B-DF14-4FF2-96CD-13F27FB509A6.png" alt="真夏のテレフォン ジャケット写真" class="jacket-img">
         </header>
 
-        <!-- ① 音源セクション -->
         <section class="section">
             <h2>🎵 楽曲を聴く</h2>
             <div style="padding: 40px; background: rgba(0,0,0,0.3); border-radius: 8px;">
@@ -105,7 +203,6 @@
             </div>
         </section>
 
-        <!-- ② 振付動画セクション -->
         <section class="section">
             <h2>💃 みんなで踊ろう振付動画</h2>
             <div class="media-wrapper">
@@ -116,7 +213,6 @@
             <p style="font-size: 0.9rem; opacity: 0.8;">サビの振付を覚えて一緒に踊ろう！</p>
         </section>
 
-        <!-- ③ 制作秘話セクション -->
         <section class="section">
             <h2>📖 制作秘話</h2>
             <div class="story-text">
@@ -130,5 +226,18 @@
         </footer>
     </div>
 
+    <!-- 画面を消すためのJavaScript -->
+    <script>
+        function hideSplash() {
+            const splash = document.getElementById('splash-screen');
+            // フワッと消えるように透明度を0にする
+            splash.style.opacity = '0';
+            
+            // 1秒後（フェードアウト完了後）に完全に非表示にする
+            setTimeout(() => {
+                splash.style.display = 'none';
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
