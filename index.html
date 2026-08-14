@@ -3,87 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>真夏のテレフォン - Special Page</title>
+    <title>真夏のテレフォン / Special Page</title>
     <style>
-        /* 全体のベース */
-        body { margin: 0; padding: 0; font-family: sans-serif; background: #0f2027; color: #fff; overflow-x: hidden; }
+        /* 全体のベース（シュワシュワ感のあるグラデーション） */
+        body {
+            margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: radial-gradient(circle at center, #2c5364, #203a43, #0f2027);
+            color: #fff; text-align: center; min-height: 100vh;
+        }
 
         /* =========================================
-           Special Thanks オープニング（自動遷移）
+           Special Thanks オープニング（2秒で自動遷移）
         ========================================= */
-        #splash {
+        #splash-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #00c6ff, #0072ff, #ff7e5f);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             z-index: 9999; transition: opacity 1.5s ease;
         }
 
-        /* 泡アニメーション（画面全体） */
-        .bubble-container { position: absolute; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
-        .bubble { position: absolute; bottom: -50px; background: rgba(255,255,255,0.4); border-radius: 50%; animation: rise 5s infinite; }
-        @keyframes rise { 
-            0% { transform: translateY(0); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-110vh); opacity: 0; }
-        }
+        .splash-thanks { font-size: 2.4rem; font-style: italic; letter-spacing: 6px; margin-bottom: 15px; }
+        .splash-main { font-size: 2.8rem; font-weight: bold; letter-spacing: 2px; }
 
         /* =========================================
-           メインページ（リッチ・夏仕様）
+           メインLPデザイン（リッチ・夏仕様・復活）
         ========================================= */
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .hero { margin: 20px 0; }
-        .jacket-img { width: 100%; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
+        .container { max-width: 600px; margin: 0 auto; padding: 30px 20px; }
+        .jacket-img { width: 100%; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); border: 2px solid rgba(255,255,255,0.2); }
+
         .section {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 16px; padding: 30px; margin: 30px 0;
-            /* 全体にシュワシュワ感を出すためのうっすらとした光のグラデ */
-            box-shadow: inset 0 0 20px rgba(0,198,255,0.1);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px; padding: 35px 25px; margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
         }
+        
+        .section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #00c6ff, #ff7e5f); border-radius: 16px 16px 0 0;
+        }
+
+        .media-wrapper {
+            position: relative; width: 100%; padding-top: 56.5%;
+            background: #000; border-radius: 10px; overflow: hidden; margin-bottom: 15px;
+        }
+
+        .story-text { text-align: left; line-height: 1.9; font-size: 0.95rem; color: rgba(255, 255, 255, 0.9); }
+        footer { padding: 40px 0; font-size: 0.8rem; opacity: 0.6; }
     </style>
 </head>
 <body>
 
-    <!-- 自動遷移するオープニング -->
-    <div id="splash">
-        <div class="bubble-container">
-            <div class="bubble" style="left:10%; width:30px; height:30px; animation-delay:0s"></div>
-            <div class="bubble" style="left:40%; width:50px; height:50px; animation-delay:1s"></div>
-            <div class="bubble" style="left:70%; width:20px; height:20px; animation-delay:2s"></div>
-        </div>
-        <h1 style="font-family:serif; font-style:italic; font-size:2.5rem;">Special Thanks</h1>
-        <p style="letter-spacing:5px;">For All Purchasers</p>
-        <h2 style="font-size:2rem;">真夏のテレフォン</h2>
+    <!-- オープニング -->
+    <div id="splash-screen">
+        <div class="splash-thanks">Special Thanks</div>
+        <div class="splash-main">真夏のテレフォン</div>
     </div>
 
     <!-- メインLP -->
     <div class="container">
-        <header class="hero">
-            <img src="1C5CA39B-DF14-4FF2-96CD-13F27FB509A6.png" class="jacket-img">
-        </header>
+        <header class="hero"><img src="1C5CA39B-DF14-4FF2-96CD-13F27FB509A6.png" class="jacket-img"></header>
 
         <section class="section">
             <h2>🎵 楽曲を聴く</h2>
-            <p>（音源プレイヤーエリア）</p>
+            <div style="padding: 40px; background: rgba(0,0,0,0.2); border-radius: 10px; border: 1px dashed rgba(255,255,255,0.2);">
+                <p>音源プレイヤーエリア</p>
+            </div>
         </section>
 
         <section class="section">
-            <h2>💃 振付動画</h2>
-            <p>（動画エリア）</p>
+            <h2>💃 みんなで踊ろう振付動画</h2>
+            <div class="media-wrapper"><div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">準備中</div></div>
         </section>
+
+        <section class="section">
+            <h2>📖 制作秘話</h2>
+            <div class="story-text">エピソードが入ります。</div>
+        </section>
+
+        <footer>&copy; オタクのいちごさん All Rights Reserved.</footer>
     </div>
 
     <script>
-        // 4秒後に自動でフェードアウトして消す
-        window.onload = () => {
+        // 2秒後にフェードアウト（切り替わり時間を短縮）
+        window.addEventListener('load', () => {
             setTimeout(() => {
-                const splash = document.getElementById('splash');
+                const splash = document.getElementById('splash-screen');
                 splash.style.opacity = '0';
                 setTimeout(() => { splash.style.display = 'none'; }, 1500);
-            }, 4000);
-        };
+            }, 2000); 
+        });
     </script>
 </body>
 </html>
