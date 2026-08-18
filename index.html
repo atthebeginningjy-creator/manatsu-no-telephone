@@ -181,11 +181,6 @@
             box-shadow: 0 8px 20px rgba(255, 77, 166, 0.6);
         }
 
-        .btn-pink:active {
-            transform: scale(0.97) translateY(0);
-            box-shadow: 0 3px 10px rgba(255, 77, 166, 0.4);
-        }
-
         .coming-soon {
             font-size: 1.1rem;
             color: var(--text-main);
@@ -251,10 +246,6 @@
             background-color: #fff;
         }
 
-        .board-img-wrap:hover {
-            transform: scale(1.03);
-        }
-
         .board-img-wrap img {
             width: 100%;
             height: auto;
@@ -276,6 +267,7 @@
 
     <canvas id="particles"></canvas>
 
+    <!-- オープニング画面 -->
     <div id="opening-overlay">
         <div class="opening-box">
             <p style="font-size: 0.9rem; letter-spacing: 0.25em; margin-bottom: 15px; font-weight: bold;">
@@ -287,17 +279,21 @@
 
     <div class="wrapper" id="main-wrapper">
         
+        <!-- メインタイトル：恋するオルゴール -->
         <section id="sec-top">
             <div class="jacket-area">
-                <img id="lp-jacket" src="" alt="Jacket Image">
+                <img id="lp-jacket" src="./manatsu.png.PNG?v=2" alt="恋するオルゴール Jacket">
             </div>
-            <h1 class="main-title" id="lp-title">---</h1>
-            <p class="catchphrase" id="lp-catchphrase">---</p>
+            <h1 class="main-title">恋するオルゴール</h1>
+            <p class="catchphrase">真夏のテレフォン&#10;･･････つないだ想い、届くよね♡</p>
         </section>
 
+        <!-- 楽曲リンク -->
         <section id="sec-music">
             <h2>Music</h2>
-            <div id="music-content"></div>
+            <div id="music-content">
+                <a href="https://youtu.be/LM0vAY1e9GM" target="_blank" class="btn-pink">楽曲を聴く</a>
+            </div>
         </section>
 
         <!-- 振付動画セクション -->
@@ -309,18 +305,36 @@
             </div>
         </section>
 
+        <!-- メッセージ -->
         <section id="sec-message">
             <h2>Message</h2>
-            <p class="message-text" id="lp-message">---</p>
-            <div class="message-signature" id="lp-signature"></div>
+            <p class="message-text">この度は、セカンドシングル「真夏のテレフォン」をご購入いただき、本当にありがとうございます！
+第一弾の「星屑パスポート」に続き、こうして皆さんに新しい曲をお届けできること、心から感謝しています。
+
+今回の曲は、夏の海辺や受話器越しのドキドキをテーマにした、爽やかで元気いっぱいのサマーチューンです！
+皆さんのひと夏が、この曲を通してもっとキラキラ輝くものになりますように。
+
+私たち「恋するオルゴール」は、これからも皆さんと一緒に夢に向かって走っていきます。
+今年の夏は「真夏のテレフォン」をたくさん聴いて、一緒に最高の思い出を作りましょうね♪
+
+これからも応援、よろしくお願いします！</p>
+            <div class="message-signature">恋するオルゴール&#10;早坂恵美&#10;宮本直美</div>
         </section>
 
+        <!-- スペシャルコンテンツ -->
         <section id="sec-secret">
             <h2>Special Contents</h2>
             
             <div class="secret-block">
                 <div class="secret-title">『真夏のテレフォン』制作秘話</div>
-                <div class="secret-content-body" id="secret1-content"></div>
+                <div class="secret-content-body">
+                    <div class="board-img-wrap">
+                        <a href="https://youtu.be/oe1iUgGIB14" target="_blank">
+                            <img src="./夏テレ秘話.png.png?v=2" alt="真夏のテレフォン 制作秘話">
+                        </a>
+                    </div>
+                    <a href="https://youtu.be/oe1iUgGIB14" target="_blank" class="btn-pink">制作秘話を見る</a>
+                </div>
             </div>
 
             <hr style="border: none; border-top: 2px dotted rgba(255, 255, 255, 0.4); margin-bottom: 30px;">
@@ -333,71 +347,13 @@
         </section>
 
         <footer>
-            &copy; <span id="current-year"></span> Premium Music Card. All Rights Reserved.
+            &copy; 2026 Premium Music Card. All Rights Reserved.
         </footer>
     </div>
 
     <script>
-        const CONFIG = {
-            title: "恋するオルゴール",
-            catchphrase: "真夏のテレフォン\n･･････つないだ想い、届くよね♡", 
-            jacketUrl: "./manatsu.png.PNG", 
-            musicYoutubeUrl: "https://youtu.be/LM0vAY1e9GM",
-            secret1Url: "https://youtu.be/oe1iUgGIB14",
-            secret1ImgUrl: "./夏テレ秘話.png.png",
-            message: `この度は、セカンドシングル「真夏のテレフォン」をご購入いただき、本当にありがとうございます！
-第一弾の「星屑パスポート」に続き、こうして皆さんに新しい曲をお届けできること、心から感謝しています。
-
-今回の曲は、夏の海辺や受話器越しのドキドキをテーマにした、爽やかで元気いっぱいのサマーチューンです！
-皆さんのひと夏が、この曲を通してもっとキラキラ輝くものになりますように。
-
-私たち「恋するオルゴール」は、これからも皆さんと一緒に夢に向かって走っていきます。
-今年の夏は「真夏のテレフォン」をたくさん聴いて、一緒に最高の思い出を作りましょうね♪
-
-これからも応援、よろしくお願いします！`,
-            signature: `恋するオルゴール
-早坂恵美
-宮本直美`
-        };
-
+        // オープニングアニメーション
         document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("lp-title").innerText = CONFIG.title;
-            document.title = `${CONFIG.title} - 限定特典ページ（真夏のテレフォン）`;
-            document.getElementById("lp-catchphrase").innerText = CONFIG.catchphrase;
-            document.getElementById("lp-jacket").src = CONFIG.jacketUrl;
-            document.getElementById("lp-message").textContent = CONFIG.message;
-            document.getElementById("lp-signature").textContent = CONFIG.signature;
-            document.getElementById("current-year").innerText = new Date().getFullYear();
-
-            const musicContent = document.getElementById("music-content");
-            if(CONFIG.musicYoutubeUrl) {
-                const btn = document.createElement("a");
-                btn.href = CONFIG.musicYoutubeUrl;
-                btn.target = "_blank";
-                btn.className = "btn-pink";
-                btn.innerText = "楽曲を聴く";
-                musicContent.appendChild(btn);
-            }
-
-            const secret1Content = document.getElementById("secret1-content");
-            let secret1Html = "";
-
-            if (CONFIG.secret1ImgUrl) {
-                secret1Html += `
-                    <div class="board-img-wrap">
-                        <a href="${CONFIG.secret1Url || '#'}" target="_blank">
-                            <img src="${CONFIG.secret1ImgUrl}" alt="真夏のテレフォン 制作秘話">
-                        </a>
-                    </div>`;
-            }
-
-            if (CONFIG.secret1Url) {
-                secret1Html += `
-                    <a href="${CONFIG.secret1Url}" target="_blank" class="btn-pink">制作秘話を見る</a>`;
-            }
-
-            secret1Content.innerHTML = secret1Html;
-
             setTimeout(() => {
                 const overlay = document.getElementById("opening-overlay");
                 const wrapper = document.getElementById("main-wrapper");
@@ -406,6 +362,7 @@
             }, 1200);
         });
 
+        // 背景の炭酸の気泡（サイダー）エフェクト
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
         let bubbles = [];
