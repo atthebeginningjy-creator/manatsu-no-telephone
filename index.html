@@ -6,7 +6,6 @@
     <title>恋するオルゴール - 限定特典ページ（真夏のテレフォン）</title>
     <style>
         :root {
-            /* 夏らしいブルーと白、アクセントのピンクを定義 */
             --bg-top: #00b4db;
             --bg-bottom: #0083b0;
             --glass-bg: rgba(255, 255, 255, 0.15);
@@ -24,7 +23,6 @@
         }
 
         body {
-            /* 海や青空を思わせるグラデーション背景 */
             background: linear-gradient(135deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
             background-attachment: fixed;
             color: var(--text-main);
@@ -35,7 +33,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* 炭酸の気泡エフェクト用キャンバス */
         #particles {
             position: fixed;
             top: 0;
@@ -46,7 +43,6 @@
             pointer-events: none;
         }
 
-        /* オープニング画面（ブルー背景） */
         #opening-overlay {
             position: fixed;
             top: 0;
@@ -95,7 +91,6 @@
             transform: translateY(0);
         }
 
-        /* すりガラス風のセクションボックス */
         section {
             background: var(--glass-bg);
             backdrop-filter: blur(8px);
@@ -162,7 +157,6 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
-        /* 夏らしいポップなピンクボタン */
         .btn-pink {
             display: inline-block;
             width: 90%;
@@ -190,22 +184,6 @@
         .btn-pink:active {
             transform: scale(0.97) translateY(0);
             box-shadow: 0 3px 10px rgba(255, 77, 166, 0.4);
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border: 1px solid var(--glass-border);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border: none;
         }
 
         .coming-soon {
@@ -296,10 +274,8 @@
 </head>
 <body>
 
-    <!-- 炭酸の気泡エフェクト用キャンバス -->
     <canvas id="particles"></canvas>
 
-    <!-- オープニング画面 -->
     <div id="opening-overlay">
         <div class="opening-box">
             <p style="font-size: 0.9rem; letter-spacing: 0.25em; margin-bottom: 15px; font-weight: bold;">
@@ -311,7 +287,6 @@
 
     <div class="wrapper" id="main-wrapper">
         
-        <!-- ジャケット写真・タイトル -->
         <section id="sec-top">
             <div class="jacket-area">
                 <img id="lp-jacket" src="" alt="Jacket Image">
@@ -320,28 +295,26 @@
             <p class="catchphrase" id="lp-catchphrase">---</p>
         </section>
 
-        <!-- 音源リンク -->
         <section id="sec-music">
             <h2>Music</h2>
             <div id="music-content"></div>
         </section>
 
-        <!-- 振付動画 (カミングスーン) -->
+        <!-- 振付動画セクション -->
         <section id="sec-choreography">
-            <h2>Choreography</h2>
+            <h2>真夏のテレフォン振付動画</h2>
+            <p style="font-size: 0.9rem; margin-bottom: 15px; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">覚えて一緒に踊ろうね♪</p>
             <div id="mv-content">
                 <div class="coming-soon">Coming Soon...</div>
             </div>
         </section>
 
-        <!-- 購入者へのメッセージ -->
         <section id="sec-message">
             <h2>Message</h2>
             <p class="message-text" id="lp-message">---</p>
             <div class="message-signature" id="lp-signature"></div>
         </section>
 
-        <!-- 制作秘話と手書きメッセージ -->
         <section id="sec-secret">
             <h2>Special Contents</h2>
             
@@ -352,9 +325,9 @@
 
             <hr style="border: none; border-top: 2px dotted rgba(255, 255, 255, 0.4); margin-bottom: 30px;">
 
+            <!-- メンバーから手書きスペシャルメッセージボード -->
             <div class="secret-block">
-                <div class="secret-title">手書きスペシャルメッセージ</div>
-                <!-- カミングスーン表示 -->
+                <div class="secret-title">メンバーから手書きスペシャルメッセージボード</div>
                 <div class="coming-soon">Coming Soon...</div>
             </div>
         </section>
@@ -366,20 +339,12 @@
 
     <script>
         const CONFIG = {
-            title: "真夏のテレフォン",
+            title: "恋するオルゴール",
             catchphrase: "真夏のテレフォン\n･･････つないだ想い、届くよね♡", 
-            
-            // ① 実際のファイル名に合わせて指定
             jacketUrl: "./manatsu.png.PNG", 
-
-            // ② 音源リンク
             musicYoutubeUrl: "https://youtu.be/LM0vAY1e9GM",
-            
-            // ③ 制作秘話の画像とリンク（実際のファイル名）
             secret1Url: "https://youtu.be/oe1iUgGIB14",
             secret1ImgUrl: "./夏テレ秘話.png.png",
-
-            // ④ 購入者様へのメッセージ
             message: `この度は、セカンドシングル「真夏のテレフォン」をご購入いただき、本当にありがとうございます！
 第一弾の「星屑パスポート」に続き、こうして皆さんに新しい曲をお届けできること、心から感謝しています。
 
@@ -390,7 +355,6 @@
 今年の夏は「真夏のテレフォン」をたくさん聴いて、一緒に最高の思い出を作りましょうね♪
 
 これからも応援、よろしくお願いします！`,
-
             signature: `恋するオルゴール
 早坂恵美
 宮本直美`
@@ -398,7 +362,7 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("lp-title").innerText = CONFIG.title;
-            document.title = `${CONFIG.title} - 限定特典ページ`;
+            document.title = `${CONFIG.title} - 限定特典ページ（真夏のテレフォン）`;
             document.getElementById("lp-catchphrase").innerText = CONFIG.catchphrase;
             document.getElementById("lp-jacket").src = CONFIG.jacketUrl;
             document.getElementById("lp-message").textContent = CONFIG.message;
@@ -410,7 +374,7 @@
                 const btn = document.createElement("a");
                 btn.href = CONFIG.musicYoutubeUrl;
                 btn.target = "_blank";
-                btn.className = "btn-pink"; // ピンクボタンを適用
+                btn.className = "btn-pink";
                 btn.innerText = "楽曲を聴く";
                 musicContent.appendChild(btn);
             }
@@ -434,7 +398,6 @@
 
             secret1Content.innerHTML = secret1Html;
 
-            // オープニングアニメーション（少し長めに余韻を残してフェードアウト）
             setTimeout(() => {
                 const overlay = document.getElementById("opening-overlay");
                 const wrapper = document.getElementById("main-wrapper");
@@ -443,7 +406,6 @@
             }, 1200);
         });
 
-        // 背景の炭酸の気泡（サイダー）エフェクト
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
         let bubbles = [];
@@ -459,21 +421,21 @@
         class Bubble {
             constructor() {
                 this.reset();
-                this.y = Math.random() * canvas.height; // 初期のバラつき
+                this.y = Math.random() * canvas.height;
             }
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = canvas.height + Math.random() * 100;
-                this.size = Math.random() * 3 + 1; // 気泡の大きさ
-                this.speedY = Math.random() * 1.5 + 0.5; // 上に昇るスピード
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 1.5 + 0.5;
                 this.angle = Math.random() * Math.PI * 2;
                 this.speedX = Math.random() * 0.2 + 0.1;
-                this.alpha = Math.random() * 0.4 + 0.1; // 半透明の白
+                this.alpha = Math.random() * 0.4 + 0.1;
             }
             update() {
                 this.y -= this.speedY;
                 this.angle += 0.05;
-                this.x += Math.sin(this.angle) * this.speedX; // ゆらゆら揺れる動き
+                this.x += Math.sin(this.angle) * this.speedX;
                 if (this.y < -10) {
                     this.reset();
                 }
